@@ -1,6 +1,6 @@
 <?php
-    require_once './app/views/category.view.php';
-    require_once './app/models/category.model.php';
+    require_once './app/views/record.view.php';
+    require_once './app/models/record.model.php';
 
     class recordController{
         

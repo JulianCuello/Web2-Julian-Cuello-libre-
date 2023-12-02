@@ -1,11 +1,11 @@
 <?php
 require_once './app/controllers/list.controller.php';
 require_once './app/controllers/about.controller.php';
-require_once './app/controllers/category.controller.php';
+require_once './app/controllers/record.controller.php';
 require_once './templates/form_alta.php';
 require_once './templates/form_update.php';
-require_once './templates/form_alta.Category.php';
-require_once './templates/form_update.Category.php';
+require_once './templates/form_alta.record.php';
+require_once './templates/form_update.record.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -14,18 +14,6 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// listar productos    ->        ShowListController->showList();  //todos los Productos + categorias solo lo ve el usuario
-// listar producto/:Id ->        ShowListController->showListById();//solo el producto seleccionado.
-// listar categorias  ->         ShowCategoryController->showCategory();//todas las categorias
-// listar categoria/:Id ->       ShowCategoryController->showCategoryByid();//sola la categoria seleccionada.
-// listar productosAdmin->       ShowListController->showAdminList();//todos los productos + solo los ve el administrador
-// agregar productos ->          ShowListControler->addItem();//agrega item.
-// removeItem/:Id ->             ShowListController->removeItem($id);//elimina item.
-// MostrarFormAlta->             showForm();//formulario para agregar item.
-
-// about ->             aboutController->showAbout();
-
-// parsea la accion para separar accion real de parametros
 $params = explode('/', $action);
 
 switch ($params[0]) {
@@ -55,7 +43,7 @@ switch ($params[0]) {
         case 'form':
             showForm();
             break;
-        case 'updatechilden':
+        case 'updateChilden':
             showFormUpdate($params[1]);
             break;
         case 'update':
