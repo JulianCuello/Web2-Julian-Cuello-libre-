@@ -1,0 +1,13 @@
+<!-- main footer -->
+</div>
+<footer class="bg-dark text-white text-center fixed-bottom py-2">
+    <div class="container">
+        <p>2023 TUDAI UNICEN - Integrantes: Cuello Julian</p>
+
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+
+</html>
