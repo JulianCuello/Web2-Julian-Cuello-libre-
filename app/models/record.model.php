@@ -8,23 +8,23 @@ class recordModel {
     }
 
 
-    function getCategoria(){
-        $query = $this->db->prepare('SELECT * FROM `categoria`');
+    function getRecord(){
+        $query = $this->db->prepare('SELECT * FROM `historial`');
             $query->execute();
 
             // $tasks es un arreglo de niños
-            $categorias = $query->fetchAll(PDO::FETCH_OBJ);
+            $record = $query->fetchAll(PDO::FETCH_OBJ);
 
-            return $categorias;   
+            return $record;   
     }
 
-    function getChildenCategoriaById($id){
-        $query = $this->db->prepare('SELECT niños.*, categoria.categoria FROM niños JOIN categoria ON niños.idNiños = categoria.idNiños WHERE niños.idNiños=?');
+    function getChildenRecordById($id){
+        $query = $this->db->prepare('SELECT niños.*, historial.historial FROM niños JOIN historial ON niños.idNiños = historial.idNiños WHERE niños.idNiños=?');
             $query->execute([$id]);
 
-            $categoria = $query->fetchAll(PDO::FETCH_OBJ);
+            $record = $query->fetchAll(PDO::FETCH_OBJ);
 
-            return $categoria;
+            return $record;
     }
 
      /**

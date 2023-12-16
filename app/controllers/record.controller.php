@@ -13,18 +13,18 @@
         }
 
         public function showRecord(){
-            $categorias=$this->model->getCategoria();
+            $categorias=$this->model->getRecord();
             $this->view->showRecord($categorias);    
             }
             
         public function showRecordById($id){
-            $categoria=$this->model->getchildenCategoriaById($id);
+            $categoria=$this->model->getchildenRecordById($id);
             $this->view->showChildensRecordById($categoria);
         }
 
         //vista de administrador
         public function showRecordAdmin(){
-            $categorias=$this->model->getCategoria();
+            $categorias=$this->model->getRecord();
             $this->view->showRecordsAdmin($categorias);    
        }
        function addRecord(){

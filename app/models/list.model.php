@@ -9,7 +9,7 @@ class ListModel {
 
     
     function getList() {//consulta por la lista, incluida la categoria a la que corresponden
-        $query = $this->db->prepare('SELECT niños.*, datos.idDatos FROM niños JOIN record ON niños.idNiños = record.idRecord;');
+        $query = $this->db->prepare('SELECT niños.*, historial.historial FROM niños JOIN historial ON niños.idDatos = historial.idDatos;');
         $query->execute();
 
         $list = $query->fetchAll(PDO::FETCH_OBJ);
@@ -18,18 +18,18 @@ class ListModel {
     }
 
     function getListById($id) {//consulta por el niño segun parametro incluida la categoria
-        $query = $this->db->prepare('SELECT * FROM `niño` JOIN record ON niño.idrecord=record.idRecord WHERE idNiño = ?');
+        $query = $this->db->prepare('SELECT * FROM `niño` JOIN historial ON niño.idDatos=historial.idDatos WHERE idNiño = ?');
         $query->execute([$id]);
 
-        $item = $query->fetchAll(PDO::FETCH_OBJ);
+        $Children = $query->fetchAll(PDO::FETCH_OBJ);
 
-        return $item;
+        return $Children;
     }
 
     /**
      * Inserta la tarea en la base de datos
      */
-    function insertItem($idNiño,$codigo, $nombre, $apellido, $edad, $sexo, $idDatos) {
+    function insertChildren($idNiño,$codigo, $nombre, $apellido, $edad, $sexo, $idDatos) {
         $query = $this->db->prepare('INSERT INTO niños (idNiño, codigo, nombre, apellido, edad, sexo, idDatos) VALUES(?,?,?,?,?,?,?)');
         $query->execute([$idNiño, $codigo,  $nombre, $apellido, $edad, $sexo, $idDatos]);
 
@@ -42,7 +42,7 @@ function deleteChildren($id) {
     $query->execute([$id]);
 }
 
-function updateItem($idNiño,$codigo, $nombre, $apellido, $edad, $sexo, $idDatos) {    
+function updateChildren($idNiño,$codigo, $nombre, $apellido, $edad, $sexo, $idDatos) {    
     $query = $this->db->prepare('INSERT INTO niños (idNiño, codigo, nombre, apellido, edad, sexo, idDatos) VALUES(?,?,?,?,?,?,?)');
         $query->execute([$idNiño, $codigo,  $nombre, $apellido, $edad, $sexo, $idDatos]);
     //aca hay que preguntar como devuelvo un id valido.

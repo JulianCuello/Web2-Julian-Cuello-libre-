@@ -47,7 +47,7 @@ class ListController {
             return;
         }
 
-        $id = $this->model->insertItem($idNiño,$codigo, $nombre, $apellido, $edad,$sexo, $idDatos);
+        $id = $this->model->insertChildren($idNiño,$codigo, $nombre, $apellido, $edad,$sexo, $idDatos);
         if ($id) {
             header('Location: ' . BASE_URL."listAdmin");
         } else {
@@ -71,7 +71,7 @@ class ListController {
         $idDatos= $_POST['idDatos'];
 
         //validaciones
-        $this->model->updateItem($idNiño,$codigo, $nombre, $apellido, $edad,$sexo, $idDatos);
+        $this->model->updateChildren($idNiño,$codigo, $nombre, $apellido, $edad,$sexo, $idDatos);
         header('Location: ' . BASE_URL."listAdmin");
         /*
         if ($id) {
